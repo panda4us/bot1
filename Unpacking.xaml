@@ -1,0 +1,200 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Sequence" mva:VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="Sequence_4"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Sequence" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="path_source" />
+      <Variable x:TypeArguments="x:String" Name="path_dest" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="index" />
+    </Sequence.Variables>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[path_source]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">C:\Users\Admin\Downloads\new\very new\</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[path_dest]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">C:\Users\Admin\Desktop\botoferma</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="ui:GenericValue">[index]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="ui:GenericValue">[10027]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <WriteLine DisplayName="Write Line" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[path_dest]" />
+    <ui:CommentOut DisplayName="Comment Out" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <DoWhile DisplayName="Do While" sap2010:WorkflowViewState.IdRef="DoWhile_1" Condition="[CINT(index)&gt;80]">
+            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Directory" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[Environment.CurrentDirectory+&quot;\&quot;+index.ToString]" />
+              <ui:CopyFile ContinueOnError="{x:Null}" Destination="[Environment.CurrentDirectory+&quot;\&quot;+index.ToString+&quot;\Telegram.exe&quot;]" DisplayName="Copy File" sap2010:WorkflowViewState.IdRef="CopyFile_3" Overwrite="False" Path="C:\Users\Admin\Desktop\botoferma\bot1000\Telegram.exe" />
+              <Assign sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[index]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="ui:GenericValue">[index+1]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </DoWhile>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.GetDirectories(path_source)]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="ui:GenericValue" Name="path_tmp" />
+            </Sequence.Variables>
+            <WriteLine DisplayName="Write Line" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[item]" />
+            <WriteLine DisplayName="Write Line" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;C:\Users\Admin\Desktop\botoferma\&quot;+index+&quot;\&quot;]" />
+            <ui:InvokeCode ContinueOnError="{x:Null}" Code="Microsoft.VisualBasic.FileIO.FileSystem.MoveDirectory(path_tmp,path_tmp2)" DisplayName="Invoke Code" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+              <ui:InvokeCode.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="path_tmp">[item]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="path_tmp2">["C:\Users\Admin\Desktop\botoferma\"+index+"\"]</InArgument>
+              </ui:InvokeCode.Arguments>
+            </ui:InvokeCode>
+            <Assign sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign.To>
+                <OutArgument x:TypeArguments="ui:GenericValue">[index]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="ui:GenericValue">[index+1]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <sads:DebugSymbol.Symbol>dzNDOlxVc2Vyc1xBZG1pblxEb2N1bWVudHNcVWlQYXRoXGJvdDFcVW5wYWNraW5nLnhhbWwaPwORAQ4CAQFFBUwOAgEfTQVUDgIBG1UFXA4CARddBV1sAgEUXgVxFQIBE3IFjwESAgECSjBKVgIBIkcxRz4CASBSMFJQAgEeTzFPPAIBHFo3Wj4CARpXOFc/AgEYXVxdaQIBFXKQAXK5AQIBEngLjAEWAgEDfA18bwIBD30NfawBAgENfg2DAR0CAQmEAQ2LARYCAQR8ZHxsAgEQfWR9qQECAQ6AAUmAAU8CAQuBAUqBAXkCAQqJAT+JAUgCAQeGAUCGAUcCAQU=</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="416,60" />
+      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="416,60" />
+      <sap2010:ViewStateData Id="Assign_3" sap:VirtualizedContainerService.HintSize="416,60" />
+      <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="416,61" />
+      <sap2010:ViewStateData Id="CreateDirectory_2" sap:VirtualizedContainerService.HintSize="242,22" />
+      <sap2010:ViewStateData Id="CopyFile_3" sap:VirtualizedContainerService.HintSize="242,22" />
+      <sap2010:ViewStateData Id="Assign_4" sap:VirtualizedContainerService.HintSize="242,60" />
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="478,949" />
+      <sap2010:ViewStateData Id="DoWhile_1" sap:VirtualizedContainerService.HintSize="200,51">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="222,175">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="CommentOut_3" sap:VirtualizedContainerService.HintSize="416,253" />
+      <sap2010:ViewStateData Id="WriteLine_2" sap:VirtualizedContainerService.HintSize="314,61" />
+      <sap2010:ViewStateData Id="WriteLine_3" sap:VirtualizedContainerService.HintSize="314,61" />
+      <sap2010:ViewStateData Id="InvokeCode_1" sap:VirtualizedContainerService.HintSize="314,164" />
+      <sap2010:ViewStateData Id="Assign_5" sap:VirtualizedContainerService.HintSize="314,60" />
+      <sap2010:ViewStateData Id="Sequence_6" sap:VirtualizedContainerService.HintSize="336,590">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ForEach`1_1" sap:VirtualizedContainerService.HintSize="416,51">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="438,869">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
